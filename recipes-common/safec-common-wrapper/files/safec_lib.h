@@ -100,8 +100,8 @@ typedef int errno_t;
 #define sprintf_s( dst, max, fmt, ... ) (parseFormat(dst, max, fmt, ##__VA_ARGS__) == 0) ? -ESNULLP : sprintf( dst, fmt, ##__VA_ARGS__)
 
 #define STRCPY_S(dest,size,source)                      \
-	{ \
-	errno_t rc=-1; \
+    { \
+    errno_t rc=-1; \
         rc=strcpy_s(dest, size, source);                \
         if(rc!=EOK)                                     \
         {                                               \
@@ -109,8 +109,8 @@ typedef int errno_t;
         }\
 }
 #define MEMCPY_S(dest,dsize,source,ssize)                      \
-	{                                                  \
-	errno_t safec_rc=-1; \
+    {                                                  \
+    errno_t safec_rc=-1; \
         safec_rc=memcpy_s(dest, dsize, source, ssize);                \
         if(safec_rc!=EOK)                                     \
         {                                               \

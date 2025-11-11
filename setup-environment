@@ -50,7 +50,7 @@ BBLAYERS =+ "\${RDKROOT}/meta-cmf"
 EOF
 fi
 
-# Add meta-rdk-voice-sdk only if not already present.
+# Add meta-rdk-ext only if not already present.
 if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-rdk-ext') -eq 0 -a -d  $TOP_DIR/meta-rdk-ext ]
 then
     cat >> conf/bblayers.conf <<EOF

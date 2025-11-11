@@ -23,7 +23,7 @@ python () {
 # Add creation of symbols here
 PACKAGE_PREPROCESS_FUNCS += "breakpad_package_preprocess"
 breakpad_package_preprocess () {
-    
+
     machine_dir="${@d.getVar('MACHINE', True)}"
     mkdir -p ${TMPDIR}/deploy/breakpad_symbols/$machine_dir
 
