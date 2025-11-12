@@ -26,24 +26,6 @@ if [ $? -ne 0 ]; then
     return 1
 fi
 
-# Add meta-cmf-bsp-emulator ONLY if meta-rdk-bsp-emulator is included in the BBLAYERS.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-rdk-bsp-emulator') -eq 1 -a \
-     $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-bsp-emulator') -eq 0 -a \
-     -d  $TOP_DIR/meta-cmf-bsp-emulator ]
-then
-    cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-cmf-bsp-emulator"
-EOF
-fi
-
-# Add meta-cmf-restricted only if not already present.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-restricted') -eq 0 -a -d  $TOP_DIR/meta-cmf-restricted ]
-then
-    cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-cmf-restricted"
-EOF
-fi
-
 # Add meta-cmf-broadband only if not already present.
 if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-broadband[^-]') -eq 0 -a -d  $TOP_DIR/meta-cmf-broadband ]
 then
@@ -60,30 +42,6 @@ BBLAYERS =+ "\${RDKROOT}/meta-cmf-mesh"
 EOF
 fi
 
-# Add meta-cmf-video only if not already present.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-video[^-]') -eq 0 -a -d  $TOP_DIR/meta-cmf-video ]
-then
-    cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-cmf-video"
-EOF
-fi
-
-# Add meta-cmf-video-restricted only if not already present.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-video-restricted[^-]') -eq 0 -a -d  $TOP_DIR/meta-cmf-video-restricted ]
-then
-    cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-cmf-video-restricted"
-EOF
-fi
-
-# Add meta-cmf-camera only if not already present.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf-camera[^-]') -eq 0 -a -d  $TOP_DIR/meta-cmf-camera ]
-then
-    cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-cmf-camera"
-EOF
-fi
-
 # Add meta-cmf only if not already present.
 if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-cmf[^-]') -eq 0 -a -d  $TOP_DIR/meta-cmf ]
 then
@@ -92,11 +50,11 @@ BBLAYERS =+ "\${RDKROOT}/meta-cmf"
 EOF
 fi
 
-# Add meta-rdk-voice-sdk only if not already present.
-if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-rdk-voice-sdk') -eq 0 -a -d  $TOP_DIR/meta-rdk-voice-sdk ]
+# Add meta-rdk-ext only if not already present.
+if [ $(grep '^BBLAYERS' conf/bblayers.conf | grep -c 'meta-rdk-ext') -eq 0 -a -d  $TOP_DIR/meta-rdk-ext ]
 then
     cat >> conf/bblayers.conf <<EOF
-BBLAYERS =+ "\${RDKROOT}/meta-rdk-voice-sdk"
+BBLAYERS =+ "\${RDKROOT}/meta-rdk-ext"
 EOF
 fi
 
