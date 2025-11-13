@@ -1,6 +1,6 @@
-BBMASK .= "|meta-rdk/recipes-extended/jquery/"
-
 MAINTAINER = "RDK CMF Team <support@rdkcentral.com>"
+
+CMF_GIT_MAIN_BRANCH ?= "main"
 
 PREFERRED_PROVIDER_curl ?= "curl"
 
