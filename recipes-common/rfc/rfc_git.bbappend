@@ -7,3 +7,5 @@ EXTRA_OECONF_remove = "--enable-rdkcertselector=yes"
 
 # Remove rdkb support due to dependency on CPC cpg-utils
 EXTRA_OECONF_remove = "--enable-rdkb=yes"
+
+CFLAGS_append = " -Wno-unused-variable"
